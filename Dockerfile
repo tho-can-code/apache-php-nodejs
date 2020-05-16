@@ -73,6 +73,7 @@ RUN echo "ServerName localhost" | tee /etc/apache2/conf-available/servername.con
 RUN a2enconf servername
 RUN a2enconf php7.2-fpm
 RUN a2enmod actions proxy proxy_fcgi setenvif rpaf remoteip
+RUN a2dismod reqtimeout
 
 # Supervisor
 RUN mkdir -p /run/php/
