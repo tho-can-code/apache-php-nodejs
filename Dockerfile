@@ -72,7 +72,7 @@ RUN a2enmod rewrite expires
 RUN echo "ServerName localhost" | tee /etc/apache2/conf-available/servername.conf
 RUN a2enconf servername
 RUN a2enconf php7.2-fpm
-RUN a2enmod actions proxy proxy_fcgi setenvif rpaf
+RUN a2enmod actions proxy proxy_fcgi setenvif rpaf remoteip
 
 # Supervisor
 RUN mkdir -p /run/php/
