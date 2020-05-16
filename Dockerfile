@@ -88,3 +88,7 @@ RUN dpkg -i -E amazon-cloudwatch-agent.deb
 RUN usermod -aG adm cwagent
 ENV RUN_IN_CONTAINER="True"
 RUN rm -rf amazon-cloudwatch-agent.deb
+RUN rm -rf /tmp/* && \
+    rm -rf /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard && \
+    rm -rf /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl && \
+    rm -rf /opt/aws/amazon-cloudwatch-agent/bin/config-downloader
