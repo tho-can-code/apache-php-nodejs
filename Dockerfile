@@ -32,6 +32,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     php7.2-xml \
     php7.2-zip \
     php7.2-intl \
+    php7.2-redis \
     php-imagick \
     # Install tools
     openssl \
