@@ -45,6 +45,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     sqlite3 \
     ca-certificates \
     collectd \
+    redis-server \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install composer
