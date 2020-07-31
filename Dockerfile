@@ -2,6 +2,10 @@ FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+RUN apt-get update
+RUN apt -y install software-properties-common
+RUN add-apt-repository ppa:ondrej/php
+
 RUN apt-get update && apt-get install -yq --no-install-recommends \
     apt-utils \
     supervisor \
@@ -17,22 +21,22 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     # Install apache
     apache2 \
     apache2-dev \
-    # Install php 7.2
-    php7.2-fpm \
-    php7.2-cli \
-    php7.2-json \
-    php7.2-curl \
-    php7.2-fpm \
-    php7.2-gd \
-    php7.2-ldap \
-    php7.2-mbstring \
-    php7.2-mysql \
-    php7.2-soap \
-    php7.2-sqlite3 \
-    php7.2-xml \
-    php7.2-zip \
-    php7.2-intl \
-    php7.2-redis \
+    # Install php 7.4
+    php7.4-fpm \
+    php7.4-cli \
+    php7.4-json \
+    php7.4-curl \
+    php7.4-fpm \
+    php7.4-gd \
+    php7.4-ldap \
+    php7.4-mbstring \
+    php7.4-mysql \
+    php7.4-soap \
+    php7.4-sqlite3 \
+    php7.4-xml \
+    php7.4-zip \
+    php7.4-intl \
+    php7.4-redis \
     php-imagick \
     # Install tools
     openssl \
@@ -64,8 +68,8 @@ ADD rpaf/rpaf.conf /etc/apache2/mods-available
 RUN locale-gen en_US.UTF-8
 
 # Configure PHP
-COPY php.ini /etc/php/7.2/fpm/php.ini
-COPY www.conf /etc/php/7.2/fpm/pool.d/www.conf
+COPY php.ini /etc/php/7.4/fpm/php.ini
+COPY www.conf /etc/php/7.4/fpm/pool.d/www.conf
 
 # Configure Apache
 RUN rm -rf /etc/apache2/apache2.conf
@@ -73,7 +77,7 @@ COPY apache2.conf /etc/apache2/apache2.conf
 RUN a2enmod rewrite expires
 RUN echo "ServerName localhost" | tee /etc/apache2/conf-available/servername.conf
 RUN a2enconf servername
-RUN a2enconf php7.2-fpm
+RUN a2enconf php7.4-fpm
 RUN a2enmod actions proxy proxy_fcgi setenvif rpaf remoteip
 RUN a2dismod reqtimeout
 
