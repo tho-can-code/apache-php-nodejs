@@ -74,7 +74,7 @@ COPY www.conf /etc/php/7.4/fpm/pool.d/www.conf
 # Configure Apache
 RUN rm -rf /etc/apache2/apache2.conf
 COPY apache2.conf /etc/apache2/apache2.conf
-RUN a2enmod rewrite expires
+RUN a2enmod rewrite expires headers
 RUN echo "ServerName localhost" | tee /etc/apache2/conf-available/servername.conf
 RUN a2enconf servername
 RUN a2enconf php7.4-fpm
