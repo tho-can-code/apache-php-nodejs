@@ -1,0 +1,1 @@
+Ubuntu 18.04 based Docker images with Apache, PHP 7.4, SQL Server Driver, Nodejs 10.x, CloudWatch Logs Agent 
