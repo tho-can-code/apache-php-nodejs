@@ -3,7 +3,7 @@ FROM ubuntu:18.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
-RUN apt -y install software-properties-common
+RUN apt -y install software-properties-common curl
 
 # Microsoft ODBC Driver for SQL Server
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
